@@ -65,6 +65,28 @@ st.markdown(
     <style>
     .block-container {
         padding-top: 0.75rem;  }
+    .css-1d391kg {
+            background-color: #f2f2f3;  /* Main background */
+        }
+        .css-18e3th9 {
+            background-color: #c8cad0;  /* Secondary background */
+        }
+
+        /* Primary color (for buttons, active elements) */
+        .css-145kmo2, .stButton>button {
+            background-color: #0c3494;  /* Primary color */
+            color: white;  /* Ensure text is visible on buttons */
+        }
+
+        /* Text color */
+        .css-1l6jenu, .stText, .stTitle, .stMarkdown, .stDataFrame {
+            color: #101726;  /* Text color */
+        }
+
+        /* Optional: customize font if needed */
+        /* body, div, button, h1, h2, h3 {
+            font-family: 'sans serif'; 
+        } */
     </style>
     """,
     unsafe_allow_html=True
@@ -140,7 +162,7 @@ with col2:
         with metric_col1:
             st.markdown(
                 f"""
-                <div style="background-color:#101726;padding:14px;border-radius:10px;text-align:center">
+                <div style="background-color:#101726;padding:14px;border-radius:10px;text-align:center; margin:3px">
                     <h3 style="color:#C8CAD0;font-size:25px;">Gross Rental Yield</h3>
                     <p style="color:#C8CAD0;font-size:24px;">{gross_rental_yield:.2f}%</p>
                 </div>
@@ -150,7 +172,7 @@ with col2:
         with metric_col2:
             st.markdown(
                 f"""
-                <div style="background-color:#C8CAD0;padding:5px;border-radius:10px;text-align:center">
+                <div style="background-color:#C8CAD0;padding:5px;border-radius:10px;text-align:center; margin:3px">
                     <h3 style="color:#101726;">Avg. Sale Price</h3>
                     <p style="color:#101726;font-size:24px;">AED {avg_sale_price:,.2f}</p>
                     <p style="color:#101726;font-size:15px;">...based on {num_sales_records} sales.</p>
@@ -162,7 +184,7 @@ with col2:
         with metric_col3:
             st.markdown(
                 f"""
-                <div style="background-color:#C8CAD0;padding:5px;border-radius:10px;text-align:center">
+                <div style="background-color:#C8CAD0;padding:5px;border-radius:10px;text-align:center; margin:3px">
                     <h3 style="color:#101726;">Avg. Rent Price</h3>
                     <p style="color:#101726;font-size:24px;">AED {avg_rent_price:,.2f}</p>
                     <p style="color:#101726;font-size:15px;">...based on {num_rental_records} rental contracts.</p>
