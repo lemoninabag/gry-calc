@@ -117,8 +117,9 @@ with col2:
         num_sales_records = len(filtered_sales_data)
         if num_sales_records > 0:
             avg_sale_price = filtered_sales_data['actual_worth'].mean()
-            filtered_sales_data['instance_date'] = filtered_sales_data['instance_date'].dt.to_timestamp()
             filtered_sales_data = filtered_sales_data.groupby(filtered_sales_data['instance_date'].dt.to_period("M")).mean(numeric_only=True).reset_index()
+            filtered_sales_data['instance_date'] = filtered_sales_data['instance_date'].dt.to_timestamp()
+
             
         else:
             avg_sale_price = 0
