@@ -70,7 +70,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Rental Yield Calculator")
+st.title("Rental Yield Calculator (Beta)")
 
 time_periods = [1, 3, 6, 12, 24, 36, 60]
 months_back = st.select_slider(
@@ -172,7 +172,6 @@ with col2:
             )
 
 st.subheader("Compare Rental Yields Across Multiple Areas")
-st.write("Graph will be updated to add the same filters like property type/rooms")
 
 selected_comparison_areas = st.multiselect("Select Area(s)/Project(s):", area_options, default=["Business Bay"])
 
@@ -219,6 +218,4 @@ if not comparison_data.empty:
     comparison_chart_data = comparison_data.pivot(index='instance_date', columns='Area', values='Gross Rental Yield')
     st.line_chart(comparison_chart_data, use_container_width=True)
 
-st.write("Notes:")
-st.write("Latest sales data: 30 Sept. 2024,")
-st.write("Latest rental data: 04 Oct. 2024")
+st.write("*** Note: Data updated til 09 Oct. 2024 ***")
