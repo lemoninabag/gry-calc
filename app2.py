@@ -65,6 +65,9 @@ st.markdown(
     <style>
     .block-container {
         padding-top: 0.75rem;  }
+    html {
+            color-scheme: light;
+        }
     .css-1d391kg {
             background-color: #f2f2f3;  /* Main background */
         }
