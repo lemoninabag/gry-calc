@@ -10,52 +10,46 @@ st.set_page_config(
     layout='wide',
     menu_items=None
 )
-# Function to download and load the sales data from Hugging Face
 @st.cache_data()
 def load_sales_data():
     """Download and load Sales data from Hugging Face."""
     filename = "Sales.csv"
     repo_id = "lemoninabag/Sales"
     
-    # Download the Sales dataset from Hugging Face
     hf_hub_download(
         repo_id=repo_id,
         filename=filename,
         repo_type="dataset",
-        local_dir="./data",  # Store the file in the data directory
-        token=st.secrets["hf_key"]  # Hugging Face authentication token
+        local_dir="./data",  
+        token=st.secrets["hf_key"]  
     )
     
     file_path = Path('./data') / filename
     real_estate_df = pd.read_csv(file_path)
     
-    # Clean and format the sales data
     real_estate_df['instance_date'] = pd.to_datetime(real_estate_df['instance_date'])
     real_estate_df['master_project_en'] = real_estate_df['master_project_en'].str.strip()
     real_estate_df['property_sub_type_en'] = real_estate_df['property_sub_type_en'].str.strip()
     
     return real_estate_df
 
-# Function to download and load the rental data from Hugging Face
 @st.cache_data()
 def load_rental_data():
     """Download and load Rentals data from Hugging Face."""
     filename = "Rentals.csv"
     repo_id = "lemoninabag/Rentals"
     
-    # Download the Rentals dataset from Hugging Face
     hf_hub_download(
         repo_id=repo_id,
         filename=filename,
         repo_type="dataset",
-        local_dir="./data",  # Store the file in the data directory
-        token=st.secrets["hf_key"]  # Hugging Face authentication token
+        local_dir="./data",  
+        token=st.secrets["hf_key"]  
     )
     
     file_path = Path('./data') / filename
     rental_df = pd.read_csv(file_path)
     
-    # Clean and format the rental data
     rental_df['contract_start_date'] = pd.to_datetime(rental_df['contract_start_date'])
     rental_df['master_project_en'] = rental_df['master_project_en'].str.strip()
     rental_df['ejari_property_type_en'] = rental_df['ejari_property_type_en'].str.strip()
@@ -63,7 +57,6 @@ def load_rental_data():
     
     return rental_df
 
-# Load the sales and rental data from Hugging Face
 sales_data = load_sales_data()
 rental_data = load_rental_data()
 
@@ -124,8 +117,8 @@ with col2:
         num_sales_records = len(filtered_sales_data)
         if num_sales_records > 0:
             avg_sale_price = filtered_sales_data['actual_worth'].mean()
-            filtered_sales_data = filtered_sales_data.groupby(filtered_sales_data['instance_date'].dt.to_period("M")).mean().reset_index()
             filtered_sales_data['instance_date'] = filtered_sales_data['instance_date'].dt.to_timestamp()
+            filtered_sales_data = filtered_sales_data.groupby(filtered_sales_data['instance_date'].dt.to_period("M")).mean().reset_index()
             
         else:
             avg_sale_price = 0
