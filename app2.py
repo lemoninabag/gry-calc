@@ -194,7 +194,7 @@ for comparison_area in selected_comparison_areas:
     ]
 
     if not comp_sales_data.empty:
-        comp_sales_data = comp_sales_data.groupby(comp_sales_data['instance_date'].dt.to_period("M")).mean().reset_index()
+        comp_sales_data = comp_sales_data.groupby(comp_sales_data['instance_date'].dt.to_period("M")).mean(numeric_only=True).reset_index()
         comp_sales_data['instance_date'] = comp_sales_data['instance_date'].dt.to_timestamp()
         comp_avg_sale_price = comp_sales_data['actual_worth'].mean()
     else:
