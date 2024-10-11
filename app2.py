@@ -65,31 +65,18 @@ st.markdown(
     <style>
     .block-container {
         padding-top: 0.75rem;  }
-    html {
-            color-scheme: light;
-        }
-    .css-1d391kg {
-            background-color: #f2f2f3;  /* Main background */
-        }
-        .css-18e3th9 {
-            background-color: #c8cad0;  /* Secondary background */
-        }
-
-        /* Primary color (for buttons, active elements) */
-        .css-145kmo2, .stButton>button {
-            background-color: #0c3494;  /* Primary color */
-            color: white;  /* Ensure text is visible on buttons */
-        }
-
-        /* Text color */
-        .css-1l6jenu, .stText, .stTitle, .stMarkdown, .stDataFrame {
-            color: #101726;  /* Text color */
-        }
-
-        /* Optional: customize font if needed */
-        /* body, div, button, h1, h2, h3 {
-            font-family: 'sans serif'; 
-        } */
+    .stApp {
+        background-color: #f2f2f3;
+    }
+    .css-18e3th9 {
+        background-color: #c8cad0;
+    }
+    .css-1cpxqw2 a {
+        color: #0c3494;
+    }
+    .css-k1vhr4 {
+        color: #101726;
+    }
     </style>
     """,
     unsafe_allow_html=True
