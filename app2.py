@@ -64,19 +64,7 @@ st.markdown(
     """
     <style>
     .block-container {
-        padding-top: 0.75rem;  }
-    .stApp {
-        background-color: #f2f2f3;
-    }
-    .css-18e3th9 {
-        background-color: #c8cad0;
-    }
-    .css-1cpxqw2 a {
-        color: #0c3494;
-    }
-    .css-k1vhr4 {
-        color: #101726;
-    }
+        padding-top: 1rem;  }
     </style>
     """,
     unsafe_allow_html=True
