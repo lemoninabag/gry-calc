@@ -218,4 +218,4 @@ if not comparison_data.empty:
     comparison_chart_data = comparison_data.pivot(index='instance_date', columns='Area', values='Gross Rental Yield')
     st.line_chart(comparison_chart_data, use_container_width=True)
 
-st.write("*** Note: Data updated til 09 Oct. 2024 ***")
+st.write("*** Note: Data updated til 29 Oct. 2024 ***")
